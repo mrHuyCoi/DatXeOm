@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xe Ôm Bến Cát - Đặt Xe Công Nghệ & Giao Hàng Nhanh Chóng, An Toàn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #8BC34A;
+            /* Xanh lá cây */
+            --secondary-color: #FF9800;
+            /* Cam */
+            --text-color: #333;
+            --zalo-color: #0084ff;
+            /* Màu Zalo */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+        }
+
+        /* Nav Bar */
+        .navbar-dark {
+            background-color: rgba(33, 37, 41, 0.95) !important;
+        }
+
+        /* Header / Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-cta {
+            font-size: 1.25rem;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 195, 74, 0.7);
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .quote-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .customer-info {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .customer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .customer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .contact-image {
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 991px) {
+            .contact-image {
+                display: none;
+            }
+        }
+
+        .cta-bar {
+            background-color: var(--primary-color);
+        }
+
+        footer {
+            background-color: #212529;
+            color: #ccc;
+            padding: 30px 0;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        .service-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .service-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ======================================================== */
+        /* CSS CHO NÚT GỌI ĐIỆN VÀ ZALO NỔI (LUÔN XẾP CỘT) */
+        /* ======================================================== */
+
+        .floating-call-btn,
+        .floating-zalo-btn {
+            position: fixed;
+            right: 20px;
+            z-index: 1050;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Nút Gọi Điện (Call) */
+        .floating-call-btn {
+            bottom: 20px;
+            /* Vị trí thấp nhất */
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .floating-call-btn:hover {
+            background-color: #7CB342;
+            transform: scale(1.1);
+        }
+
+        .floating-call-btn i {
+            font-size: 1.8rem;
+        }
+
+        /* Nút Zalo */
+        .floating-zalo-btn {
+            /* 20px (nút gọi) + 60px (chiều cao nút) + 10px (khoảng cách) = 90px */
+            bottom: 90px;
+            background-color: var(--zalo-color);
+            color: white;
+        }
+
+        .floating-zalo-btn:hover {
+            background-color: #006ee6;
+            transform: scale(1.1);
+        }
+
+        /* Chỉnh kích thước cho ảnh Zalo */
+        .floating-zalo-btn .zalo-icon-img {
+            width: 65%;
+            height: 65%;
+            object-fit: contain;
+        }
+
+        /* Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 0 rgba(139, 195, 74, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(139, 195, 74, 0);
+            }
+
+            100% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 0 rgba(139, 195, 74, 0);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 1.5s infinite;
+        }
+
+
+        /* ********** RESPONSIVE (Tối ưu Mobile - dưới 576px) ********** */
+        @media (max-width: 576px) {
+
+            .floating-call-btn,
+            .floating-zalo-btn {
+                width: 50px;
+                /* Giảm kích thước nút trên mobile */
+                height: 50px;
+                right: 10px;
+                /* Giảm khoảng cách lề phải */
+            }
+
+            .floating-call-btn i {
+                font-size: 1.5rem;
+            }
+
+            .floating-call-btn {
+                bottom: 10px;
+                /* Vị trí thấp nhất */
+            }
+
+            .floating-zalo-btn {
+                /* 10px lề dưới + 10px khoảng cách + 50px chiều cao nút gọi = 70px */
+                bottom: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="tel:0877623338" class="floating-call-btn pulse-animation" title="Gọi Ngay Đặt Xe">
+        <i class="bi bi-telephone-fill"></i>
+    </a>
+
+    <a href="https://zalo.me/0877623338" class="floating-zalo-btn pulse-animation" title="Chat Zalo Tư Vấn">
+        <img src="zalo-icon.png" alt="Zalo" class="zalo-icon-img">
+    </a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#hero" style="color: var(--primary-color);">🛵 Xe Ôm Bến Cát</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Về Chúng Tôi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Dịch Vụ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Ưu Điểm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Đánh Giá</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Liên Hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section" id="hero">
+        <div class="container text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="hero-title mb-4">Di Chuyển An Toàn & Giao Hàng Siêu Tốc Tại Bến Cát</h1>
+                    <p class="lead mb-5 fs-4 fw-light">Hơn 500+ chuyến đi mỗi ngày. Đặt xe trong 30 giây, có mặt sau 3
+                        phút.</p>
+                    <a href="tel:0877623338" class="btn btn-outline-light btn-cta mb-3 shadow">📞 GỌI ĐẶT XE OFFLINE</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-5 bg-white">
+        <div class="container" data-aos="fade-up">
+            <h2 class="text-center mb-4 text-dark fw-bold">Xe Ôm Bến Cát - Người Bạn Đồng Hành Tin Cậy</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <p class="lead fw-bold" style="color: var(--primary-color);">Chúng tôi là dịch vụ xe ôm công nghệ
+                        tiên phong, tập trung vào thị trường Bến Cát, Bình Dương và các khu vực lân cận.</p>
+                    <p>Với đội ngũ tài xế địa phương hùng hậu, chúng tôi cam kết mang đến trải nghiệm di chuyển an toàn,
+                        nhanh chóng và tiết kiệm nhất.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> **Phạm vi hoạt động:** KCN Mỹ
+                            Phước 1, 2, 3, 4, Chợ Bến Cát, Rạch Bắp.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> **Cam kết:** 100% tài xế được xác
+                            minh danh tính và đào tạo nghiệp vụ.</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i> **Hỗ trợ:** Hotline 24/7 giải
+                            quyết mọi sự cố.</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-success mt-3"
+                        style="background-color: var(--primary-color); border-color: var(--primary-color);">Tìm hiểu
+                        thêm <i class="bi bi-arrow-right"></i></a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="banner1.jpeg" alt="Bản đồ hoạt động Bến Cát" class="img-fluid rounded shadow-lg"
+                        data-aos="zoom-in" data-aos-delay="300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="my-0">
+
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 text-dark fw-bold" data-aos="fade-down">Các Dịch Vụ Chính</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="xeom1.jpg" alt="Dịch vụ Xe Ôm Bến Cát" class="service-img">
+                    <h4 class="fw-bold">Xe Ôm Bến Cát</h4>
+                    <p>Đặt xe ôm di chuyển cá nhân nhanh chóng, giá tốt. Phù hợp cho quãng đường ngắn và trung bình.</p>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <img src="xeomgiaohang.jpg" alt="Dịch vụ Giao Hàng Nhanh Chóng" class="service-img">
+                    <h4 class="fw-bold">Giao Hàng Nhanh Chóng</h4>
+                    <p>Giao nhận tài liệu, hàng hóa nội thành Bến Cát siêu tốc. An toàn và bảo mật.</p>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <img src="xeomditinh.jpg" alt="Dịch vụ Xe Ôm Đi Tỉnh" class="service-img">
+                    <h4 class="fw-bold">Xe Ôm Đi Tỉnh</h4>
+                    <p>Dịch vụ xe đi các huyện lân cận, đi Bình Dương, TP.HCM với mức giá thỏa thuận trước.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="my-0">
+
+    <section id="features" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold" data-aos="fade-down" style="color: var(--primary-color);">Lợi Ích Của
+                Bạn</h2>
+            <div class="row text-center">
+                <div class="col-lg-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4 bg-light rounded shadow-sm h-100 feature-card">
+                        <i class="bi bi-tag-fill icon-box"></i>
+                        <h5 class="fw-bold">Giá Cố Định</h5>
+                        <p class="small text-muted">Biết trước chi phí chuyến đi, không lo phát sinh phụ phí không mong
+                            muốn.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-4 bg-light rounded shadow-sm h-100 feature-card">
+                        <i class="bi bi-person-check-fill icon-box"></i>
+                        <h5 class="fw-bold">Tài Xế Địa Phương</h5>
+                        <p class="small text-muted">Đội ngũ lái xe thân thiện, thông thạo mọi ngõ ngách Bến Cát.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="p-4 bg-light rounded shadow-sm h-100 feature-card">
+                        <i class="bi bi-star-fill icon-box"></i>
+                        <h5 class="fw-bold">Đánh Giá Minh Bạch</h5>
+                        <p class="small text-muted">Bạn có quyền chọn tài xế có xếp hạng 5 sao và lịch sử tốt.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="p-4 bg-light rounded shadow-sm h-100 feature-card">
+                        <i class="bi bi-shield-lock-fill icon-box"></i>
+                        <h5 class="fw-bold">Bảo Hiểm An Toàn</h5>
+                        <p class="small text-muted">Mọi chuyến đi đều được bảo hiểm, đảm bảo sự an tâm tuyệt đối.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 text-dark fw-bold" data-aos="fade-down">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-right" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div>
+                            <i class="bi bi-quote quote-icon"></i>
+                            <p class="fst-italic">"Tôi thường xuyên đi làm ở KCN Mỹ Phước, đặt xe Xe Ôm Bến Cát rất
+                                nhanh, tài xế thân thiện và biết đường tắt, giúp tôi không bị trễ giờ."</p>
+                        </div>
+                        <div class="customer-info">
+                            <div class="customer-avatar">
+                                <img src="avt3.jpg" alt="Avatar Anh Quang">
+                            </div>
+                            <p class="mb-0 fw-bold">- Anh Quang (Kỹ sư)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <div>
+                            <i class="bi bi-quote quote-icon"></i>
+                            <p class="fst-italic">"Dịch vụ giao hàng quá tuyệt vời! Tôi cần giao gấp hồ sơ ra chợ Bến
+                                Cát, tài xế đến lấy và giao trong vòng 30 phút. Rất chuyên nghiệp."</p>
+                        </div>
+                        <div class="customer-info">
+                            <div class="customer-avatar">
+                                <img src="avt1.jpg" alt="Avatar Chị Mai">
+                            </div>
+                            <p class="mb-0 fw-bold">- Chị Mai (Chủ cửa hàng)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-delay="500">
+                    <div class="testimonial-card">
+                        <div>
+                            <i class="bi bi-quote quote-icon"></i>
+                            <p class="fst-italic">"Giá cả phải chăng, đặc biệt là vào giờ cao điểm, ứng dụng khác tăng
+                                giá, Xe Ôm Bến Cát vẫn giữ mức ổn định. Hài lòng 5 sao!"</p>
+                        </div>
+                        <div class="customer-info">
+                            <div class="customer-avatar">
+                                <img src="avt2.jpg" alt="Avatar Bạn Hùng">
+                            </div>
+                            <p class="mb-0 fw-bold">- Bạn Hùng (Sinh viên)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center mb-5 text-dark fw-bold" data-aos="fade-down">Đăng Ký Hoặc Yêu Cầu Hỗ Trợ</h2>
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                    <form action="#" method="POST"
+                        class="p-4 bg-light rounded shadow h-100 d-flex flex-column justify-content-center">
+                        <h4 class="mb-4 fw-bold" style="color: var(--primary-color);">Liên Hệ Nhanh</h4>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Họ và Tên</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email / Số Điện Thoại</label>
+                            <input type="text" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Vấn đề Quan Tâm</label>
+                            <select class="form-select" id="subject" name="subject" required>
+                                <option selected>Chọn loại yêu cầu...</option>
+                                <option value="dat_xe_nhanh">Yêu cầu đặt xe khẩn cấp</option>
+                                <option value="tro_thanh_tai_xe">Đăng ký làm tài xế</option>
+                                <option value="ho_tro_ung_dung">Hỗ trợ kỹ thuật ứng dụng</option>
+                                <option value="gop_y">Góp ý dịch vụ</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Nội dung chi tiết (Không bắt buộc)</label>
+                            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <div class="d-grid mt-auto pt-3">
+                            <button type="submit" class="btn btn-success btn-lg fw-bold"
+                                style="background-color: var(--primary-color); border-color: var(--primary-color);">Gửi
+                                Yêu Cầu Của Tôi</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+                    <div class="contact-image shadow-lg">
+                        <img src="xecongnghe.avif" alt="Đội ngũ tài xế Xe Ôm Bến Cát">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold" style="color: var(--primary-color);">Xe Ôm Bến Cát</h5>
+                    <p class="small">Dịch vụ xe ôm công nghệ địa phương, cam kết tốc độ và an toàn hàng đầu tại Bến Cát,
+                        Bình Dương.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold" style="color: var(--primary-color);">Liên Kết Nhanh</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#about">Về Chúng Tôi</a></li>
+                        <li><a href="#services">Dịch Vụ</a></li>
+                        <li><a href="#features">Ưu Điểm</a></li>
+                        <li><a href="#contact">Đăng Ký Tài Xế</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold" style="color: var(--primary-color);">Thông Tin Liên Hệ</h5>
+                    <p class="small mb-1"><i class="bi bi-telephone-fill me-2"></i> Hotline 24/7: <a
+                            href="tel:0877623338" class="text-white fw-bold">0877.623.338</a></p>
+                    <p class="small mb-1"><i class="bi bi-geo-alt-fill me-2"></i> Địa chỉ: Bến Cát, Bình Dương.</p>
+                </div>
+            </div>
+            <div class="text-center mt-4 border-top pt-3">
+                <p class="mb-0 small">&copy; 2025 Xe Ôm Bến Cát. Bản quyền thuộc L&H SPARK GROUP.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Chỉ chạy animation một lần khi cuộn
+            duration: 800, // Thời gian animation
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
